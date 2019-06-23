@@ -16,7 +16,7 @@ headingA = "180"
 headingB = "0"
 fov = "120"
 
-def image_get(street, coordx, coordy, order, heading):
+def image_get(oid, street, coordx, coordy, order, heading):
     location = str(coordx) + ',' + str(coordy)
     imageName = street + '_' + str(order) + '_' + str(heading)
     fileName = savePath + imageName + '.jpg'
@@ -25,7 +25,7 @@ def image_get(street, coordx, coordy, order, heading):
         coordtype + '&location=' + location
 
     r = requests.get(fileUrl,headers=bs)
-    print("image_get - " + imageName, end=' : ')
+    print("image_" + oid + "-" + imageName, end=' : ')
 
     if(dict(r.headers)['Content-Type'] != "image/jpeg"):
         print("FAILE", end=' === ')
@@ -37,20 +37,21 @@ def image_get(street, coordx, coordy, order, heading):
                 f.close()
                 print("SUCCESS")
         except Exception as e:
-            print('FAILE === ',e)
+            print('FAILE === ' + e)
 
 file = open(filePath)
 #reader = csv.reader(file)
 # 字典式读取方式
-# OBJECTID,PNT_ORDER,ROAD_NAME,POINT_X,POINT_Y
+# ID,STREET,STREET_OID,DIRECTION_A,DIRECTION_B,POINT_X,POINT_Y
 reader = csv.DictReader(file)
 for row in reader:
-    order = row['ID']
+    oid = row['ID']
     street = row['STREET']
+    order = row['STREET_OID']
     headingA = row['DIRECTION_A']
     headingB = row['DIRECTION_B'] 
     coordx = row['POINT_X']
     coordy = row['POINT_Y']
 
-    image_get(street, coordx, coordy, order, headingA)
-    image_get(street, coordx, coordy, order, headingB)
+    image_get(oid, street, coordx, coordy, order, headingA)
+    image_get(oid, street, coordx, coordy, order, headingB)
