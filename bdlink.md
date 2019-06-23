@@ -2,11 +2,11 @@ http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ
 &width=1024
 &height=512
 &coordtype=bd09ll
-&location=116.313393,40.04778
+&location=116.406281,39.91405
 &fov=180
 &heading=180
 
-http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&coordtype=bd09ll&fov=180&heading=180&location=116.313393,40.04778
+http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&coordtype=bd09ll&fov=180&heading=180&location=116.406281,39.91405
 
 **服务参数列表**
 
