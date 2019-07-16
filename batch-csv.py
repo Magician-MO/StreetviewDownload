@@ -3,13 +3,15 @@ import csv
 import urllib.request
 import requests
 import json
+import time
 
 bs ={'user-agent':'HuoHu/12.0.1'} #浏览器
-filePath = u"./data/input.csv"  # 文件路径
+filePath = u"./data/testcell3-edit.csv"  # 文件路径
 savePath = "./image/"  # 保存路径
 
 # url
-baseUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&fov=180'
+sampleUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&fov=120&heading=334.8775522&location=114.3635272,30.52173209'
+baseUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512'
 coordtype = "wgs84ll"
 location = "116.313393,40.04778"
 headingA = "180"
@@ -39,7 +41,7 @@ def image_get(oid, street, coordx, coordy, order, heading):
         except Exception as e:
             print('FAILE === ' + e)
 
-file = open(filePath)
+file = open(filePath, encoding="utf-8")
 #reader = csv.reader(file)
 # 字典式读取方式
 # ID,STREET,STREET_OID,DIRECTION_A,DIRECTION_B,POINT_X,POINT_Y
@@ -54,4 +56,6 @@ for row in reader:
     coordy = row['POINT_Y']
 
     image_get(oid, street, coordx, coordy, order, headingA)
+    time.sleep(1)
     image_get(oid, street, coordx, coordy, order, headingB)
+    time.sleep(1)
