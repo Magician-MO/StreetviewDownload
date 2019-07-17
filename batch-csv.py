@@ -6,7 +6,7 @@ import json
 import time
 
 bs ={'user-agent':'HuoHu/12.0.1'} #浏览器
-filePath = u"./data/testcell3-edit.csv"  # 文件路径
+filePath = u"./data/streetpntcell-50.csv"  # 文件路径
 savePath = "./image/"  # 保存路径
 
 # url
