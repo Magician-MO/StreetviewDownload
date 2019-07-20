@@ -6,11 +6,12 @@ import json
 import time
 
 bs ={'user-agent':'HuoHu/12.0.1'} #浏览器
-filePath = u"./data/input.csv"  # 文件路径
+filePath = u"./data/streetpntcell-50.csv"  # 文件路径
 savePath = "./image/"  # 保存路径
 
 # url
-baseUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&fov=180'
+sampleUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512&fov=120&heading=334.8775522&location=114.3635272,30.52173209'
+baseUrl = 'http://api.map.baidu.com/panorama/v2?ak=btM7vYlzOF2GPfjR8tHklMziZmXYT8DQ&width=1024&height=512'
 coordtype = "wgs84ll"
 location = "116.313393,40.04778"
 headingA = "180"
