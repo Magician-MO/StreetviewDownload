@@ -3,6 +3,7 @@ import csv
 import urllib.request
 import requests
 import json
+import time
 
 bs ={'user-agent':'HuoHu/12.0.1'} #浏览器
 filePath = u"./data/input.csv"  # 文件路径
@@ -39,7 +40,7 @@ def image_get(oid, street, coordx, coordy, order, heading):
         except Exception as e:
             print('FAILE === ' + e)
 
-file = open(filePath)
+file = open(filePath, encoding="utf-8")
 #reader = csv.reader(file)
 # 字典式读取方式
 # ID,STREET,STREET_OID,DIRECTION_A,DIRECTION_B,POINT_X,POINT_Y
@@ -54,4 +55,6 @@ for row in reader:
     coordy = row['POINT_Y']
 
     image_get(oid, street, coordx, coordy, order, headingA)
+    time.sleep(1)
     image_get(oid, street, coordx, coordy, order, headingB)
+    time.sleep(1)
